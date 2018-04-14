@@ -1,0 +1,35 @@
+<html>
+	<head>
+		{% if title%}
+		<title >{{ title }}</title> 
+		{% else %}
+		<title>UnTitledPage</title>
+		{% endif %}
+	</head>
+	<body>
+		<h1 style='text-align:center; color:white; background:black; width:100%;' >BlockChain Application</h1>
+		{% if user %}
+		<div>
+			<p style='float:right; border:1px solid black; ' ><strong>ID</strong>: {{ user }} </p>
+			<a href={{ url_for('logout') }} style='float:right; clear: both'>Log out</a>
+		</div>
+		<div style='width:80%;'>
+			<a href={{ url_for('request_goods') }} style='margin:0 5px'>Request Goods</a>
+			<a href={{ url_for('send_goods') }} style='margin:0 5px'>Send Goods</a>
+			<a href={{ url_for('receive_goods') }} style='margin:0 5px'>Recieve Goods</a>
+			<a href={{ url_for('send_payment') }} style='margin:0 5px'>Send Payment</a>
+			<a href={{ url_for('receive_payment') }} style='margin:0 5px'>Recieve Payment</a>
+
+		{% endif %}
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul style='margin:0 auto;'>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		{% block content %}{% endblock %}
+	</body>
+</html>

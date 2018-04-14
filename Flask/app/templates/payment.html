@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+	<div style='width:25%; margin:0 auto; text-align:center' >
+		<h1>{{ title }}</h1>
+		<form action="" method="post" >
+			{{ form.hidden_tag() }}
+            <p >
+				{{ form.To.label }}: 
+				{{ form.To(size=32) }}
+				{% for error in form.To.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p >
+				{{ form.payment.label }}: 
+				{{ form.payment(size=32) }}
+				{% for error in form.payment.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p>{{ form.submit() }}</p>
+		</form>
+	</div>
+{% endblock %}

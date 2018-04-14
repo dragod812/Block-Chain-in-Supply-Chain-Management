@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+     
+	{% for block in goods_request %}
+    <hr>
+	<div>
+		{% for k,v in block.items() %}
+		<p><strong> {{ k }}:</strong> {{ v }} </p>
+		{% endfor %}
+	</div>
+    <hr>
+	{% endfor %}
+    {% for block in payment_request %}
+    <hr>
+	<div>
+		{% for k,v in block.items() %}
+		<p><strong> {{ k }}:</strong> {{ v }} </p>
+		{% endfor %}
+	</div>
+    <hr>
+	{% endfor %}
+    {% for block in payment_sent %}
+    <hr>
+	<div>
+		{% for k,v in block.items() %}
+		<p><strong> {{ k }}:</strong> {{ v }} </p>
+		{% endfor %}
+	</div>
+    <hr>
+	{% endfor %}
+{% endblock %}

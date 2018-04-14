@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+	<div style='width:25%; margin:0 auto; text-align:center' >
+		<h1>Sign In</h1>
+		<form action="" method="post" >
+			{{ form.hidden_tag() }}
+			<p >
+				{{ form.username.label }}<br>
+				{{ form.username(size=32) }}
+				{% for error in form.username.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+
+			</p>
+			<p >
+				{{ form.password.label }}<br>
+				{{ form.password(size=32) }}
+				{% for error in form.password.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>	
+				{% endfor %}
+			</p>
+			<p>{{ form.submit() }}</p>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+	<div style='width:25%; margin:0 auto; text-align:center' >
+		<h1>{{ title }}</h1>
+		<form action="" method="post" >
+			{{ form.hidden_tag() }}
+			<p >
+				{{ form.To.label }}: 
+				{{ form.To(size=32) }}
+				{% for error in form.To.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p >
+				{{ form.product1.label }}: 
+				{{ form.product1(size=32) }}<br>
+				{{ form.quantity1.label }}: 
+				{{ form.quantity1(size=32) }}<br>
+				{% for error in form.product1.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+				{% for error in form.quantity1.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			<p >
+				{{ form.product2.label }}: 
+				{{ form.product2(size=32) }}<br>
+				{{ form.quantity2.label }}: 
+				{{ form.quantity2(size=32) }}<br>
+				{% for error in form.product2.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+				{% for error in form.quantity2.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			{% if payment %}
+			<p >
+				{{ form.payment.label }}: 
+				{{ form.payment(size=32) }}
+				{% for error in form.payment.errors %}
+				<br><span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</p>
+			{% endif %}
+			<p>{{ form.submit() }}</p>
+		</form>
+	</div>
+{% endblock %}
