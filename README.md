@@ -4,7 +4,7 @@ A flask application created to make any supply chain **secure** and **traceable*
 So we have a supplier and manufacture that we run on different servers. They can Request Goods, Send Goods, Recieve Goods,
 Send Payment and Recieve Payment.<br> 
 All these transactions create a hash for each of the data involved in the transaction. This hash is sent to all the validators, which
-are also servers running on different machines. when the validator has all the hashes and the 
+are also servers running on different machines. when the validator has all the hashes and the <br>
 **requested_hash = sent_hash = recieved_hash** <br>
 and <br>
 **requested_payment = sent_payment = recieved_payment**.<br>
